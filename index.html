@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Companion Matcher</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-globe-americas"></i>
+            <h1>Travel Companion Matcher</h1>
+        </div>
+        <nav id="main-nav" class="hidden">
+            <ul>
+                <li><a href="#" id="nav-home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#" id="nav-profile"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#" id="nav-matches"><i class="fas fa-users"></i> Matches</a></li>
+                <li><a href="#" id="nav-chat"><i class="fas fa-comments"></i> Chat</a></li>
+                <li><a href="#" id="nav-logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2>Find Your Perfect Travel Companion</h2>
+                    <p>Connect with like-minded travelers, share experiences, and explore the world together.</p>
+                    <button id="get-started" class="btn-primary pulse">Get Started <i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-element" id="float-1"><i class="fas fa-plane"></i></div>
+                    <div class="floating-element" id="float-2"><i class="fas fa-mountain"></i></div>
+                    <div class="floating-element" id="float-3"><i class="fas fa-umbrella-beach"></i></div>
+                </div>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Find Matches</h3>
+                    <p>Discover travelers with similar interests and destinations</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Connect</h3>
+                    <p>Chat with potential travel companions</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-route"></i>
+                    <h3>Travel Together</h3>
+                    <p>Plan and enjoy your journey with new friends</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login-section" class="hidden">
+            <div class="form-container">
+                <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <p id="login-error" class="error"></p>
+                <button id="login-btn" class="btn-primary">Login <i class="fas fa-arrow-right"></i></button>
+                <!--<p class="form-footer">Demo login: rohit.pandita23@vit.edu / 123456</p>-->
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="hidden">
+            <h2><i class="fas fa-user-edit"></i> Complete Your Profile</h2>
+            <div class="form-container profile-form">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Name</label>
+                    <input type="text" id="name" placeholder="Your full name">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age"><i class="fas fa-birthday-cake"></i> Age</label>
+                        <input type="number" id="age" placeholder="Your age">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender"><i class="fas fa-venus-mars"></i> Gender</label>
+                        <select id="gender">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="destination"><i class="fas fa-map-marker-alt"></i> Travel Destination</label>
+                    <input type="text" id="destination" placeholder="Where do you want to go?">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="companion-gender"><i class="fas fa-users"></i> Preferred Companion Gender</label>
+                        <select id="companion-gender">
+                            <option value="">Select Preference</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Any">Any</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget"><i class="fas fa-wallet"></i> Budget</label>
+                        <input type="number" id="budget" placeholder="Your travel budget">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bio"><i class="fas fa-comment-alt"></i> Bio</label>
+                    <textarea id="bio" placeholder="Tell potential companions about yourself..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="interests"><i class="fas fa-heart"></i> Travel Interests</label>
+                    <div class="interest-tags">
+                        <span class="interest-tag" data-interest="adventure">Adventure</span>
+                        <span class="interest-tag" data-interest="culture">Culture</span>
+                        <span class="interest-tag" data-interest="food">Food</span>
+                        <span class="interest-tag" data-interest="nightlife">Nightlife</span>
+                        <span class="interest-tag" data-interest="nature">Nature</span>
+                        <span class="interest-tag" data-interest="relaxation">Relaxation</span>
+                    </div>
+                    <input type="hidden" id="interests" value="">
+                </div>
+                <div class="button-group">
+                    <button id="save-profile" class="btn-primary"><i class="fas fa-save"></i> Save Profile</button>
+                    <button id="view-profile" class="btn-secondary"><i class="fas fa-eye"></i> View Profile</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile-section" class="hidden">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h2 id="profile-name"></h2>
+                </div>
+                <div class="profile-details">
+                    <div class="profile-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <p><strong>Age:</strong> <span id="profile-age"></span></p>
+                    </div>
+                    <div class="profile-item">
+                        <i class="fas fa-venus-mars"></i>
+                        <p><strong>Gender:</strong> <span id="profile-gender"></span></p>
+                    </div>
+                    <div class="profile-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p><strong>Destination:</strong> <span id="profile-destination"></span></p>
+                    </div>
+                    <div class="profile-item">
+                        <i class="fas fa-users"></i>
+                        <p><strong>Preferred Companion:</strong> <span id="profile-companion"></span></p>
+                    </div>
+                    <div class="profile-item">
+                        <i class="fas fa-wallet"></i>
+                        <p><strong>Budget:</strong> RS. <span id="profile-budget"></span></p>
+                    </div>
+                    <div class="profile-item">
+                        <i class="fas fa-comment-alt"></i>
+                        <p><strong>Bio:</strong> <span id="profile-bio"></span></p>
+                    </div>
+                    <div class="profile-item">
+                        <i class="fas fa-heart"></i>
+                        <p><strong>Interests:</strong> <span id="profile-interests"></span></p>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button id="edit-profile" class="btn-primary"><i class="fas fa-edit"></i> Edit Profile</button>
+                    <button id="find-matches" class="btn-secondary"><i class="fas fa-search"></i> Find Matches</button>
+                    <button id="open-chat" class="btn-accent"><i class="fas fa-comments"></i> Chat</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Matches Section -->
+        <section id="matches-section" class="hidden">
+            <h2><i class="fas fa-users"></i> Your Matches</h2>
+            <div class="matches-container">
+                <!-- Sample matches - will be generated by JS in real app -->
+                <div class="match-card">
+                    <div class="match-avatar"><i class="fas fa-user-circle"></i></div>
+                    <div class="match-info">
+                        <h3>Lokesh</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Tilak Nagar, Delhi</p>
+                        <p><i class="fas fa-wallet"></i> 4500 budget</p>
+                        <div class="match-interests">
+                            <span>Culture</span>
+                            <span>Food</span>
+                        </div>
+                    </div>
+                    <button class="btn-accent match-chat-btn"><i class="fas fa-comment"></i></button>
+                </div>
+                <div class="match-card">
+                    <div class="match-avatar"><i class="fas fa-user-circle"></i></div>
+                    <div class="match-info">
+                        <h3>Aditya</h3>
+                        <p><i class="fas fa-map-marker-alt"></i>VIT,Pune </p>
+                        <p><i class="fas fa-wallet"></i> 5500 budget</p>
+                        <div class="match-interests">
+                            <span>Adventure</span>
+                            <span>Food</span>
+                        </div>
+                    </div>
+                    <button class="btn-accent match-chat-btn"><i class="fas fa-comment"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Section -->
+        <section id="chat-section" class="hidden">
+            <h2><i class="fas fa-comments"></i> Messages</h2>
+            <div class="chat-container">
+                <div class="chat-sidebar">
+                    <div class="chat-contact active">
+                        <div class="contact-avatar"><i class="fas fa-user-circle"></i></div>
+                        <div class="contact-info">
+                            <h3>Aditya</h3>
+                            <!--<p class="last-message">Hey, when are you planning to visit Pune?</p>-->
+                        </div>
+                        <span class="message-time">10:30 AM</span>
+                    </div>
+                    <div class="chat-contact">
+                        <div class="contact-avatar"><i class="fas fa-user-circle"></i></div>
+                        <div class="contact-info">
+                            <h3>Lokesh</h3>
+                            <!--<p class="last-message">I found a great hotel in Pune!</p>-->
+                        </div>
+                        <span class="message-time">Yesterday</span>
+                    </div>
+                </div>
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <div class="contact-avatar"><i class="fas fa-user-circle"></i></div>
+                        <h3>Lokesh</h3>
+                    </div>
+                    <div id="chat-box">
+                        <div class="message-container">
+                            <div class="message received">
+                               <!-- <p>Hey there! I saw we're both interested in visiting Delhi!</p>
+                                <span class="message-time">10:15 AM</span>-->
+                            </div>
+                        </div>
+                     <div class="message-container">
+                            <div class="message sent">
+                              <!--<p>Hi Lokesh! Yes, I'm planning to go there next month!</p> 
+                                <span class="message-time">10:18 AM</span>-->
+                            </div>
+                        </div>
+                        <div class="message-container">
+                            <div class="message received">
+                              <!--- <p>Hey, when are you planning to visit Pune?</p>-->
+                                <!--<span class="message-time">/span>< // specify time as 10 30-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chat-message" placeholder="Type a message...">
+                        <button id="send-message"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Travel Companion Matcher </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
