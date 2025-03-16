@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const email = document.getElementById("email").value.trim();
             const password = document.getElementById("password").value.trim();
 
-            if (email === "rohit.pandita23@vit.edu" && password === "123456") {
+            if (email === "" && password === "123456") {
                 showNotification("Login successful!", "success");
                 setTimeout(() => {
                     showSection("dashboard");
